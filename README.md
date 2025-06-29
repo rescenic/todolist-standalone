@@ -6,7 +6,7 @@ Aplikasi Todo List sederhana yang dibuat dengan Java menggunakan Swing GUI dan a
 
 - **Java Development Kit (JDK) 20 atau lebih tinggi**
 - **Git** (untuk download source code)
-- **Windows** (untuk menjalankan file .bat)
+- **Windows** (untuk menjalankan file .ps1)
 
 ### Cara Mengecek Versi Java
 ```cmd
@@ -26,13 +26,13 @@ cd todolist-standalone
 ### 1. Compile Project
 
 **Untuk Windows:**
-```cmd
-clean-and-build.bat
+```powershell
+.\clean-and-build.ps1
 ```
 
 **Alternatif (jika ada masalah dengan script utama):**
-```cmd
-build-simple.bat
+```powershell
+.\build-simple.ps1
 ```
 
 **Untuk Linux/Mac:**
@@ -43,8 +43,8 @@ build-simple.bat
 ### 2. Menjalankan Aplikasi
 
 **Untuk Windows:**
-```cmd
-run.bat
+```powershell
+.\run.ps1
 ```
 
 **Untuk Linux/Mac:**
@@ -94,18 +94,20 @@ Project ini menggunakan arsitektur modular Java dengan 2 modul:
 - Jalankan `java --version` dan `javac --version` untuk memastikan
 - Pastikan semua file Java ada di direktori yang benar
 
-### File .bat tidak bisa dijalankan
-- Klik kanan pada file .bat → "Run as administrator"
-- Atau buka Command Prompt sebagai administrator dan jalankan file .bat
-- Pastikan Windows tidak memblokir file batch
+### File .ps1 tidak bisa dijalankan
+- Buka PowerShell sebagai administrator
+- Jalankan `Set-ExecutionPolicy RemoteSigned` untuk mengizinkan script PowerShell
+- Atau klik kanan pada file .ps1 → "Run with PowerShell"
+- Pastikan Windows tidak memblokir file PowerShell script
 
-### Aplikasi tidak muncul setelah run.bat
+### Aplikasi tidak muncul setelah run.ps1
 - Cek apakah build berhasil dengan melihat folder `target\mods\`
 - Harus ada file: `ms.todolist.domain@1.0.jar` dan `ms.todolist.gui@1.0.jar`
-- Jika tidak ada, jalankan ulang `clean-and-build.bat`
+- Jika tidak ada, jalankan ulang `clean-and-build.ps1`
 
 ### Tips untuk Pemula
-1. **Selalu jalankan Command Prompt sebagai Administrator**
+1. **Selalu jalankan PowerShell sebagai Administrator**
 2. **Pastikan JDK (bukan JRE) yang terinstall**
 3. **Cek versi Java:** `java --version` harus menunjukkan versi 20+
-4. **Urutan eksekusi:** `clean-and-build.bat` dulu, baru `run.bat`
+4. **Urutan eksekusi:** `clean-and-build.ps1` dulu, baru `run.ps1`
+5. **Set ExecutionPolicy:** Jalankan `Set-ExecutionPolicy RemoteSigned` jika ada error execution policy
